@@ -1,1 +1,1 @@
-# Django-Projects
+# Codeforces Problem recommender application
