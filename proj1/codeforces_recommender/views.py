@@ -77,10 +77,11 @@ def analyze_submissions(submissions):
 
     for submission in submissions:
         problem = submission['problem']
-        if submission['verdict'] == 'OK':
-            solved_problems.add((problem['contestId'], problem['index']))
-        else:
-            failed_topics.update(problem.get('tags', []))
+        if 'contestId' in problem and 'index' in problem:
+            if submission['verdict'] == 'OK':
+                solved_problems.add((problem['contestId'], problem['index']))
+            else:
+                failed_topics.update(problem.get('tags', []))
 
     return solved_problems, failed_topics
 
